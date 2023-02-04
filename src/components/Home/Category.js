@@ -16,8 +16,8 @@ const Category = () => {
         <Link href="/dnd">
           <div className={`${styles.cat} ${styles.purple}`}>Do not Distrub</div>
         </Link>
-        <Link href="/transcript">
-          <div className={`${styles.cat} ${styles.red}`}>Cat 4</div>
+        <Link href="/contests">
+          <div className={`${styles.cat} ${styles.red}`}>Upcoming Contests</div>
         </Link>
       </div>
     </div>

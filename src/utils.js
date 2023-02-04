@@ -32,3 +32,8 @@ export async function uploadFilesToCloud(image) {
 export const alertBox = (message = "Something went wrong", type = "error") => {
   toast(message, { type: type });
 };
+
+export const getContest = async () => {
+  const data = await Axios.get("https://kontests.net/api/v1/all");
+  return data;
+};
