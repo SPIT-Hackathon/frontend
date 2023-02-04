@@ -1,20 +1,31 @@
+import Link from 'next/link';
 import React from 'react'
 import styles from "../../styles/Transcript.module.css";
 
-const colors=['red', 'blue', 'green', 'purple']
+const colors = ['red', 'blue', 'green', 'purple']
 
-const TCrad = () => {
+const TCrad = ({ title, subject, chapter, youtube, tid, chunks, summary }) => {
   return (
     <div className={styles.tcard}>
-        <div style={{backgroundColor:colors[[Math.floor(Math.random()*colors.length)]]}} className={styles.tid}>
-            CIA Properties | Confidentiality, Integrity, Availability with examples
+      <Link
+        href={{
+          pathname: `/transcript/${tid}`,
+          query: {
+            chunks: chunks,
+          }
+        }}
+      >
+        <div style={{ backgroundColor: colors[[Math.floor(Math.random() * colors.length)]] }} className={styles.tid}>
+          {title}
         </div>
-        <div className={styles.tbody}>
-            <p>Subject: History</p>
-            <p>Chapter: Chapter2</p>
-            <a href="">YT Link</a>
-        </div>
+      </Link>
+      <div className={styles.tbody}>
+        <p>Subject: {subject}</p>
+        <p>Chapter: {chapter}</p>
+        <a href={youtube} target="_black">YT Link</a>
+      </div>
     </div>
+
   )
 }
 

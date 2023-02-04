@@ -12,10 +12,10 @@ const transcript = () => {
         className="mb-3"
         fill
       >
-        <Tab eventKey="tab1" title="Study Transcripts">
+        <Tab eventKey="tab1" title="Create Transcripts">
           <CreateTrans />
         </Tab>
-        <Tab eventKey="tab2" title="Create Transcripts">
+        <Tab eventKey="tab2" title="Study Transcripts">
           <TransHistory />
         </Tab>
       </Tabs>

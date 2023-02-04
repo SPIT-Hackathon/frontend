@@ -131,3 +131,7 @@
     background: transparent;
     color:rgb(39, 31, 224) ;
 }
+
+.history_section a{
+    text-decoration: none;
+}
