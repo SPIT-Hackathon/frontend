@@ -1,7 +1,8 @@
 import { alertBox } from '@/utils';
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import * as faceapi from 'face-api.js';
-import React from 'react';
+import React, { useState } from 'react';
+import song from "../../../public/sounds/audio.mp3"
 
 
 function Drowsy() {
@@ -9,6 +10,7 @@ function Drowsy() {
   const [modelsLoaded, setModelsLoaded] = React.useState(false);
   const [captureVideo, setCaptureVideo] = React.useState(false);
   const [intervalId, setIntervalId] = React.useState(null);
+  const [audio, setAudio]=useState(new Audio(song))
 
 
   var tick = 0;
@@ -68,6 +70,11 @@ function Drowsy() {
           if (tick > 6) {
             tick = 0;
             //insert here
+            audio.play();
+
+            setTimeout(()=>{
+              audio.pause()
+            },2000)
           }
 
         }
@@ -96,11 +103,11 @@ function Drowsy() {
       <div style={{ textAlign: 'center', padding: '10px' }}>
         {
           captureVideo && modelsLoaded ?
-            <button onClick={closeWebcam} style={{ cursor: 'pointer', backgroundColor: 'green', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px' }}>
+            <button onClick={closeWebcam} style={{width:'300px', cursor: 'pointer', backgroundColor: 'green', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px', marginBottom:'10px'  }}>
               Close Webcam
             </button>
             :
-            <button onClick={startVideo} style={{ cursor: 'pointer', backgroundColor: 'green', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px' }}>
+            <button onClick={startVideo} style={{ width:'300px', cursor: 'pointer', backgroundColor: 'green', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px', marginBottom:'10px' }}>
               Enable Webcam Monitoring
             </button>
         }
