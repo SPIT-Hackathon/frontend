@@ -4,7 +4,6 @@ import DataState from "@/hooks/DataContext/DataState";
 import "bootstrap/dist/css/bootstrap.css";
 import "@/styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import 'font-awesome/css/font-awesome.min.css';
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
 import React from "react";
