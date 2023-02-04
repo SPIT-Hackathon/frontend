@@ -4,6 +4,7 @@ import DataState from "@/hooks/DataContext/DataState";
 import "bootstrap/dist/css/bootstrap.css";
 import "@/styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
 import React from "react";
 import { ToastContainer } from "react-toastify";
@@ -22,8 +23,8 @@ export default function App({ Component, pageProps }) {
         <DataState>
           <Layout>
             <Component {...pageProps} />
+            <ToastContainer />
           </Layout>
-          <ToastContainer />
         </DataState>
       </AuthState>
     </React.Fragment>

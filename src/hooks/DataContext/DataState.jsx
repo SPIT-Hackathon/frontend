@@ -18,6 +18,7 @@ function DataState({ children }) {
     }
 
     const sendTranscripts = async (data) => {
+        console.log("send transcripts: ", data)
         await axiosClient
             .post("create_nodes", data)
             .then(function (response) {
