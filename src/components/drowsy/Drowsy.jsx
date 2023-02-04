@@ -2,7 +2,7 @@ import { alertBox } from '@/utils';
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import * as faceapi from 'face-api.js';
 import React, { useState } from 'react';
-import song from "../../../public/sounds/audio.mp3"
+import song from "/sounds/audio.mp3"
 
 
 function Drowsy() {
