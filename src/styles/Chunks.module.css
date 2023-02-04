@@ -9,4 +9,9 @@
     display: flex;
     justify-content: end;
     margin-bottom: 10px;
+    align-items: center;
+}
+
+.read_aloud{
+    color: rgb(105, 105, 105);
 }

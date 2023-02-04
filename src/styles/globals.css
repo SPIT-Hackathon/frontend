@@ -116,3 +116,15 @@ body{
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
+
+.speak-icon{
+  /* width: 30px;
+  height: 30px; */
+  padding: 15px;
+  border-radius: 99px;
+}
+
+.hover-pointer:hover{
+  cursor: pointer;
+  background-color: rgb(220, 227, 217);
+}
