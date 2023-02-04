@@ -1,17 +1,23 @@
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import * as faceapi from 'face-api.js';
 import React from 'react';
+import useSound from 'use-sound';
+
 
 function Drowsy() {
 
   const [modelsLoaded, setModelsLoaded] = React.useState(false);
   const [captureVideo, setCaptureVideo] = React.useState(false);
+  
   var tick = 0;
 
   const videoRef = React.useRef();
   const videoHeight = 480;
   const videoWidth = 640;
   const canvasRef = React.useRef();
+  const [play] = useSound('/sounds/boop.mp3');
+  
+   
 
   React.useEffect(() => {
     const loadModels = async () => {
@@ -64,7 +70,7 @@ function Drowsy() {
             if(tick > 6)
             {
                 tick = 0;
-                window.alert("Pay attention");
+                //insert here
             }
 
         }
@@ -93,7 +99,7 @@ function Drowsy() {
             </button>
             :
             <button onClick={startVideo} style={{ cursor: 'pointer', backgroundColor: 'green', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px' }}>
-              Open Webcam
+              Enable Webcam Monitoring
             </button>
         }
       </div>
@@ -102,8 +108,8 @@ function Drowsy() {
           modelsLoaded ?
             <div>
               <div style={{ display: 'flex', justifyContent: 'center', padding: '10px' }}>
-                <video ref={videoRef} height={videoHeight} width={videoWidth} onPlay={handleVideoOnPlay} style={{ borderRadius: '10px' }} />
-                <canvas ref={canvasRef} style={{ position: 'absolute' }} />
+                <video ref={videoRef} height={videoHeight} width={videoWidth} onPlay={handleVideoOnPlay} style={{ borderRadius: '10px',display: 'none'}} />
+                <canvas ref={canvasRef} style={{ position: 'absolute',display: 'none' }} />
               </div>
             </div>
             :
