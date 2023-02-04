@@ -1,8 +1,6 @@
+import CreateTrans from "@/components/transcript/CreateTrans";
+import TransHistory from "@/components/transcript/TransHistory";
 import React, { useContext, useState } from "react";
-import styles from "../styles/Transcript.module.css";
-import axios from "axios";
-import dataContext from "@/hooks/DataContext/dataContext";
-import authContext from "@/hooks/AuthContext/authContext";
 import { Container, Tabs, Tab } from "react-bootstrap";
 
 const transcript = () => {
@@ -15,10 +13,10 @@ const transcript = () => {
         fill
       >
         <Tab eventKey="tab1" title="Study Transcripts">
-          <p>Tab1</p>
+          <CreateTrans />
         </Tab>
         <Tab eventKey="tab2" title="Create Transcripts">
-          Tab2
+          <TransHistory />
         </Tab>
       </Tabs>
     </div>
