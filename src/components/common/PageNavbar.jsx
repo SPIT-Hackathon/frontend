@@ -12,7 +12,9 @@ const PageNavbar = () => {
     return (
         <div className={styles.navbar}>
             <div className={styles.subnav}>
-                <h2>StudyPat</h2>
+                <Link href="/" style={{ textDecoration: "none" }} passHref>
+                    <h2>StudyPat</h2>
+                </Link>
                 <div className={styles.login}>
                     {!user && (
                         <Link href="/sign-in" passHref>
