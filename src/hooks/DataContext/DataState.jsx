@@ -22,7 +22,7 @@ function DataState({ children }) {
         console.log("send transcripts: ", data)
         alertBox("Request in progress, we'll notify once it's done!", "success");
         await axiosClient
-            .post("create_nodes", data)
+            .post("create", data)
             .then(function (response) {
                 const res = response.data;
                 setData(res);
