@@ -17,13 +17,24 @@ function DataState({ children }) {
             });
     }
 
-
+    const sendTranscripts = async (data) => {
+        await axiosClient
+            .post("create_nodes", data)
+            .then(function (response) {
+                const res = response.data;
+                setData(res);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     return (
         <DataContext.Provider
             value={{
                 data,
-                getData
+                getData,
+                sendTranscripts
             }}
         >
             {children}
