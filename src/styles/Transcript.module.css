@@ -1,22 +1,26 @@
-.navbar{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height: 10vh;
+.transcript{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 10% 0 5% 0;
+}
+
+.subhome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.subnav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 80%;
-    justify-content: space-between;
-    margin: auto;
+.subhome input{
+    width: 60vw;
+    height: 50px;
+    margin-bottom: 30px;
 }
 
-.login_button{
-    width: 150px;
+.subhome button{
+    width: 200px;
     margin: 15px;
     padding: 2% 4%;
     background-color: rgb(39, 31, 224);
@@ -29,9 +33,23 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.login_button:hover{
+.subhome button:hover{
     outline: none;
     border: solid 2px rgb(39, 31, 224);
     background: transparent;
     color:rgb(39, 31, 224) ;
+}
+
+.option{
+    margin-bottom: 5%;
+}
+
+.option select{
+    height: 50px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.option input{
+    width: 46.3vw;
 }
