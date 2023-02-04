@@ -1,3 +1,4 @@
+import { alertBox } from "@/utils";
 import { useEffect, useState } from "react";
 import axiosClient from "./../../services/axios-client";
 import DataContext from "./dataContext";
@@ -19,6 +20,7 @@ function DataState({ children }) {
 
     const sendTranscripts = async (data) => {
         console.log("send transcripts: ", data)
+        alertBox("Request in progress, we'll notify once it's done!", "success");
         await axiosClient
             .post("create_nodes", data)
             .then(function (response) {
@@ -26,6 +28,7 @@ function DataState({ children }) {
                 setData(res);
             })
             .catch(function (error) {
+                alertBox();
                 console.log(error);
             });
     }
