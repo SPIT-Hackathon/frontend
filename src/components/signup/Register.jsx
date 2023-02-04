@@ -58,7 +58,7 @@ function Register() {
                             required
                             name="name"
                             type="text"
-                            placeholder="Wine and Dine"
+                            placeholder="John Doe"
                             onChange={handleChange}
                         />
                     </InputGroup>

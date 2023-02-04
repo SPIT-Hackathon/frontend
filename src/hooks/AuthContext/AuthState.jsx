@@ -26,6 +26,7 @@ function AuthState({ children }) {
             .post("login", formData)
             .then(function (response) {
                 const res = response.data;
+                console.log(res);
                 setUser(res);
                 cookies.set("user", JSON.stringify(res), {
                     path: "/",
@@ -44,11 +45,7 @@ function AuthState({ children }) {
             .post("register", formData)
             .then(function (response) {
                 const res = response.data;
-                setUser(res);
-                cookies.set("user", JSON.stringify(res), {
-                    path: "/",
-                    maxAge: 60 * 60 * 24,
-                });
+                console.log(res);
                 alertBox("User Registration Complete!", "success");
             })
             .catch(function (error) {
