@@ -2,23 +2,25 @@ import { alertBox } from '@/utils';
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import * as faceapi from 'face-api.js';
 import React from 'react';
-
+import useSound from 'use-sound';
 
 
 function Drowsy() {
 
   const [modelsLoaded, setModelsLoaded] = React.useState(false);
   const [captureVideo, setCaptureVideo] = React.useState(false);
-  
+  const [intervalId, setIntervalId] = React.useState(null);
+
+  const { speak } = useSpeechSynthesis();
+
   var tick = 0;
 
   const videoRef = React.useRef();
   const videoHeight = 480;
   const videoWidth = 640;
   const canvasRef = React.useRef();
- 
+  const [play] = useSound('/sounds/boop.mp3');
   
-   
 
   React.useEffect(() => {
     const loadModels = async () => {
@@ -49,7 +51,7 @@ function Drowsy() {
   }
 
   const handleVideoOnPlay = () => {
-    setInterval(async () => {
+    let interval_id = setInterval(async () => {
       if (canvasRef && canvasRef.current) {
         canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(videoRef.current);
         const displaySize = {
@@ -72,8 +74,6 @@ function Drowsy() {
             {
                 tick = 0;
                 //insert here
-                alertBox("Please pay attention")
-                //window.alert("CHUP");
             }
 
         }
@@ -84,9 +84,14 @@ function Drowsy() {
         canvasRef && canvasRef.current && faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections);
       }
     }, 100)
+
+    setIntervalId(interval_id);
+
+    // clearInterval(intervalId);
   }
 
   const closeWebcam = () => {
+    clearInterval(intervalId);
     videoRef.current.pause();
     videoRef.current.srcObject.getTracks()[0].stop();
     setCaptureVideo(false);
