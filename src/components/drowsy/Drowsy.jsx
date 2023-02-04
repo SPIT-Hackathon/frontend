@@ -1,7 +1,8 @@
+import { alertBox } from '@/utils';
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import * as faceapi from 'face-api.js';
 import React from 'react';
-import useSound from 'use-sound';
+
 
 
 function Drowsy() {
@@ -15,7 +16,7 @@ function Drowsy() {
   const videoHeight = 480;
   const videoWidth = 640;
   const canvasRef = React.useRef();
-  const [play] = useSound('/sounds/boop.mp3');
+ 
   
    
 
@@ -71,6 +72,8 @@ function Drowsy() {
             {
                 tick = 0;
                 //insert here
+                alertBox("Please pay attention")
+                //window.alert("CHUP");
             }
 
         }
