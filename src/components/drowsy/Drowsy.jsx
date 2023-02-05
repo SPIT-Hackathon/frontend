@@ -1,8 +1,7 @@
 import { alertBox } from '@/utils';
 import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import * as faceapi from 'face-api.js';
-import React, { useState } from 'react';
-import song from "/sounds/audio.mp3"
+import React, { useState, useRef  } from 'react';
 
 
 function Drowsy() {
@@ -10,8 +9,24 @@ function Drowsy() {
   const [modelsLoaded, setModelsLoaded] = React.useState(false);
   const [captureVideo, setCaptureVideo] = React.useState(false);
   const [intervalId, setIntervalId] = React.useState(null);
-  const [audio, setAudio]=useState(new Audio(song))
+  // const [audio, setAudio]=useState(new Audio(song))
+  const audioRef = useRef();
 
+  const play = () => {
+    if (audioRef.current) {
+      audioRef.current.play()
+    } else {
+      // Throw error
+    }
+  }
+
+  const pause = () => {
+    if (audioRef.current) {
+      audioRef.current.pause()
+    } else {
+      // Throw error
+    }
+  }
 
   var tick = 0;
 
@@ -70,10 +85,10 @@ function Drowsy() {
           if (tick > 6) {
             tick = 0;
             //insert here
-            audio.play();
+            play()
 
             setTimeout(()=>{
-              audio.pause()
+              pause()
             },2000)
           }
 
@@ -100,6 +115,7 @@ function Drowsy() {
 
   return (
     <div>
+      <audio ref={audioRef} src='/sounds/audio.mp3' />
       <div style={{ textAlign: 'center', padding: '10px' }}>
         {
           captureVideo && modelsLoaded ?
@@ -107,9 +123,14 @@ function Drowsy() {
               Close Webcam
             </button>
             :
-            <button onClick={startVideo} style={{ width:'300px', cursor: 'pointer', backgroundColor: 'green', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px', marginBottom:'10px' }}>
+            <><button onClick={startVideo} style={{ width:'300px', cursor: 'pointer', backgroundColor: 'green', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px', marginBottom:'10px' }}>
               Enable Webcam Monitoring
             </button>
+            <div>
+              {/* <button onClick={play}>Play</button> */}
+              
+            </div>
+            </>
         }
       </div>
       {
