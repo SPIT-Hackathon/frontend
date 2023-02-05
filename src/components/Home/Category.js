@@ -20,10 +20,15 @@ const Category = () => {
           <div className={`${styles.cat} ${styles.red}`}>Equation solver</div>
         </Link>
         <Link href="/contests">
-          <div className={`${styles.cat} ${styles.purple}`}>Upcoming Contests</div>
+          <div className={`${styles.cat} ${styles.purple}`}>
+            Upcoming Contests
+          </div>
         </Link>
         <Link href="/tos">
           <div className={`${styles.cat} ${styles.red}`}>Text to speech</div>
+        </Link>
+        <Link href="/recommendation">
+          <div className={`${styles.cat} ${styles.blue}`}>Recommendations</div>
         </Link>
       </div>
     </div>

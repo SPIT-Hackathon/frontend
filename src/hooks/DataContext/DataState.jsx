@@ -6,6 +6,7 @@ import DataContext from "./dataContext";
 function DataState({ children }) {
     const [data, setData] = useState(null);
     const [transcripts, setTranscripts] = useState();
+    const [recommendations, setRecommendations] = useState();
     const getData = async () => {
         await axiosClient
             .get("data")
@@ -47,16 +48,30 @@ function DataState({ children }) {
             });
     }
 
-
+    const getRecommendations = async (payload) => {
+        console.log("Payload", payload)
+        await axiosClient
+            .get(`recommendvideos?user_id=${payload.user_id}`)
+            .then(function (response) {
+                const res = response.data;
+                setRecommendations(res.recommendations);
+            })
+            .catch(function (error) {
+                alertBox();
+                console.log(error);
+            });
+    }
 
     return (
         <DataContext.Provider
             value={{
                 data,
                 transcripts,
+                recommendations,
                 getTranscripts,
                 getData,
-                sendTranscripts
+                sendTranscripts,
+                getRecommendations
             }}
         >
             {children}
