@@ -25,10 +25,10 @@ const Details = () => {
             </div>
             <div className={styles.chunks}>
                 {data.chunks.map((chunk, key) =>
-                    <Chunks key={key} data={chunk} />
+                    <Chunks key={key} text={chunk} />
                 )}
             </div>
-            <button className={styles.add_notes}>Add to notes</button>
+            {/* <button className={styles.add_notes}>Add to notes</button> */}
         </div>
     )
 }
