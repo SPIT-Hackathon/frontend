@@ -14,13 +14,16 @@ const Category = () => {
           <div className={`${styles.cat} ${styles.blue}`}>OCR</div>
         </Link>
         <Link href="/dnd">
-          <div className={`${styles.cat} ${styles.purple}`}>Do not Distrub</div>
+          <div className={`${styles.cat} ${styles.purple}`}>Pro study mode</div>
         </Link>
         <Link href="/solver">
           <div className={`${styles.cat} ${styles.red}`}>Equation solver</div>
         </Link>
         <Link href="/contests">
-          <div className={`${styles.cat} ${styles.red}`}>Upcoming Contests</div>
+          <div className={`${styles.cat} ${styles.purple}`}>Upcoming Contests</div>
+        </Link>
+        <Link href="/tos">
+          <div className={`${styles.cat} ${styles.red}`}>Text to speech</div>
         </Link>
       </div>
     </div>
