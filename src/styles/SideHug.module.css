@@ -6,6 +6,7 @@
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     font-family: 'Poppins', sans-serif;
+    flex-direction: row;
 }
 
 .title{
@@ -16,4 +17,8 @@
 .text{
     color: rgb(39, 31, 224);
     font-size: 20px;
+}
+
+.side_image{
+    margin-right: 50px;
 }
