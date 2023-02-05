@@ -30,6 +30,11 @@ const Category = () => {
         <Link href="/recommendation">
           <div className={`${styles.cat} ${styles.blue}`}>Recommendations</div>
         </Link>
+        <Link href="/news">
+          <div className={`${styles.cat} ${styles.purple}`}>
+            Current Affairs
+          </div>
+        </Link>
       </div>
     </div>
   );

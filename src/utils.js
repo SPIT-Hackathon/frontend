@@ -37,3 +37,12 @@ export const getContest = async () => {
   const data = await Axios.get("https://kontests.net/api/v1/all");
   return data;
 };
+
+export const getNews = async (category) => {
+  const cat = category ? category : "";
+  const key = process.env.NEXT_PUBLIC_NEWS_API_KEY;
+  const data = await Axios.get(
+    `https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${key}`
+  );
+  return data;
+};
