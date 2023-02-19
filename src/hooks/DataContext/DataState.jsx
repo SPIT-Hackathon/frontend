@@ -1,5 +1,6 @@
 import { alertBox } from "@/utils";
 import { useEffect, useState } from "react";
+import Cookies from "universal-cookie";
 import axiosClient from "./../../services/axios-client";
 import DataContext from "./dataContext";
 
@@ -7,6 +8,9 @@ function DataState({ children }) {
     const [data, setData] = useState(null);
     const [transcripts, setTranscripts] = useState();
     const [recommendations, setRecommendations] = useState();
+    const cookies = new Cookies();
+    const user_id = cookies.get("user") ? cookies.get("user").user_id : "test_user_1";
+
     const getData = async () => {
         await axiosClient
             .get("data")
@@ -19,12 +23,13 @@ function DataState({ children }) {
             });
     }
     const getTranscripts = async (data) => {
-        console.log("get transcripts: ", data)
+        console.log("get transcripts: ", user_id)
         await axiosClient
-            .get(`gettranscripts?user_id=${data.user_id}`)
+            .get(`gettranscripts/${user_id}`)
             .then(function (response) {
                 const res = response.data;
-                setTranscripts(res.transcripts);
+                console.log(res)
+                setTranscripts(res);
             })
             .catch(function (error) {
                 alertBox();
@@ -51,7 +56,7 @@ function DataState({ children }) {
     const getRecommendations = async (payload) => {
         console.log("Payload", payload)
         await axiosClient
-            .get(`recommendvideos?user_id=${payload.user_id}`)
+            .get(`recommendvideos/${payload.user_id}`)
             .then(function (response) {
                 const res = response.data;
                 setRecommendations(res.recommendations);

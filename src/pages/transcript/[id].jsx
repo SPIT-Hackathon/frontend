@@ -5,8 +5,11 @@ import { useRouter } from 'next/router'
 
 const Details = () => {
     const router = useRouter();
-    const data = router.query;
+    
+    console.log(router.query)
+    const data = JSON.parse(router.query.chunks);
 
+    console.log(data)
     return (
         <div className={styles.details}>
             <div className={styles.individual}>
@@ -24,7 +27,7 @@ const Details = () => {
         </div>*/}
             </div>
             <div className={styles.chunks}>
-                {data.chunks.map((chunk, key) =>
+                {data?.map((chunk, key) =>
                     <Chunks key={key} text={chunk} />
                 )}
             </div>

@@ -14,6 +14,7 @@ const CreateTrans = () => {
   const [chapter, setChapter] = useState("");
   const [yid, setYid] = useState("")
   const initialSubs = ["Psychology", "Geography", "History"];
+
   const handleSubmit = () => {
     setYid(link.split("=")[1])
     let formData = {

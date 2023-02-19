@@ -16,7 +16,7 @@ function Recommendations() {
         try {
             setLoading(true);
             await getRecommendations(!user ? {
-                user_id: "63de27591b3aeb4a4f567218"
+                user_id: "63f1d3ef06cc463bdcbe3dd6"
             } : user);
         }
         catch (err) {

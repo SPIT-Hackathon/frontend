@@ -15,7 +15,7 @@ const PageNavbar = () => {
         <div className={styles.navbar}>
             <div className={styles.subnav}>
                 <Link href="/" passHref>
-                    <h2>StudyPat</h2>
+                    <h2>StudyPal</h2>
                 </Link>
                 <div className={styles.login}>
                     {!user && (

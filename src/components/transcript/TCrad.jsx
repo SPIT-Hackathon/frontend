@@ -11,7 +11,7 @@ const TCrad = ({ title, subject, chapter, youtube, tid, chunks, summary }) => {
         href={{
           pathname: `/transcript/${tid}`,
           query: {
-            chunks: chunks,
+            chunks: JSON.stringify(chunks),
           }
         }}
       >

@@ -4,7 +4,7 @@ import styles from "../../styles/Footer.module.css"
 function Footer() {
     return (
         <div className={styles.footer}> 
-            <p>Made with ❤️ Team 008- TechBytes</p>
+            <p>Made with ❤️ by TechBytes</p>
         </div>
     )
 }
